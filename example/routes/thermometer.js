@@ -1,20 +1,38 @@
 const Router = require("../../lib/router");
 const router = Router();
 
-const themometer = require("../sensors/thermometer");
+const thermometer = require("../sensors/thermometer");
 
 router.get("/", (req, res) => {
     writeJSON(res, {
-        temperature: themometer.temperature,
-        humidity: themometer.humidity,
+        temperature: thermometer.temperature,
+        humidity: thermometer.humidity,
         timestamp: new Date().getTime()
     });
     res.end();
 });
 
+router.observe("/", (req, res) => {
+    function _onupdate()
+    {
+        writeJSON(res, {
+            temperature: thermometer.temperature,
+            humidity: thermometer.humidity,
+            timestamp: new Date().getTime()
+        });
+    }
+
+    console.log("Start observing...");
+    thermometer.on("update", _onupdate);
+    res.on("finish", err => {
+        thermometer.removeListener("update", _onupdate);
+        console.log("End observing.");
+    });
+});
+
 router.get("/temperature", (req, res) => {
     writeJSON(res, {
-        temperature: themometer.temperature,
+        temperature: thermometer.temperature,
         timestamp: new Date().getTime()
     });
     res.end();
@@ -22,7 +40,7 @@ router.get("/temperature", (req, res) => {
 
 router.get("/humidity", (req, res) => {
     writeJSON(res, {
-        humidity: themometer.humidity,
+        humidity: thermometer.humidity,
         timestamp: new Date().getTime()
     });
     res.end();

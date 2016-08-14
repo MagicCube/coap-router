@@ -24,6 +24,13 @@ class Themometer extends Sensor
 
     update()
     {
+        this._simulateChanging();
+
+        this.emit("update");
+    }
+
+    _simulateChanging()
+    {
         this._temperature += Math.random() - 0.5;
         if (this._temperature > 36)
         {
@@ -37,8 +44,6 @@ class Themometer extends Sensor
             this._humidity = 20;
         }
         this._humidity = Math.round(this._humidity * 10) / 10;
-
-        this.emit("update");
     }
 }
 
