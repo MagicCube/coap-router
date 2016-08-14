@@ -4,6 +4,7 @@ class Themometer extends Sensor
 {
     constructor()
     {
+        super();
         this._temperature = 29.2;
         this._humidity = 12;
         setInterval(() => {
@@ -35,7 +36,7 @@ class Themometer extends Sensor
         {
             this._humidity = 20;
         }
-        this._humidity = Math.round(_humidity * 10) / 10;
+        this._humidity = Math.round(this._humidity * 10) / 10;
 
         this.emit("update");
     }

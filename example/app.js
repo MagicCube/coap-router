@@ -1,7 +1,7 @@
 const Router = require("../lib/router");
 const app = Router();
 
-const HELP = `URL: coap://hostname/
+app.help = `URL: coap://hostname/
 Usage:
 GET / - Display this help document.
 GET /thermometer - Get the current temperature together with humidity.
@@ -10,7 +10,7 @@ GET /thermometer/temperature - Get the current temperature only.
 GET /thermometer/humidity - Get the current humidity only.`
 
 app.get("/", (req, res) => {
-    res.end(HELP);
+    res.end(app.help);
 });
 
 app.use("/thermometer", require("./routes/thermometer"));
