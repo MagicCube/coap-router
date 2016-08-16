@@ -12,7 +12,7 @@ When you design a Node.js based HTTP server, web router is one of your best choi
 
 ## 2.Usage
 
-Inspired by many other JavaScript routers, `coap-router` does almost the same recursive routing as [Express.Router](http://expressjs.com/en/guide/routing.html). 
+Inspired by many other JavaScript routers, `coap-router` does almost the same recursive routing as [Express.Router](http://expressjs.com/en/guide/routing.html).
 
 Take a look at the example.
 
@@ -88,7 +88,7 @@ $ npm install
 
 ### 4.1 Install CoAP Client
 
-Although there're dozens of CoAP client available, one of the easiest way is to install Node.js based client named `coap-cli`.
+Although there're dozens of CoAP clients available, one of the easiest ways is to install Node.js based client named `coap-cli`.
 
 ```sh
 $ npm install coap-cli -g
