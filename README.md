@@ -14,7 +14,7 @@ When you design a Node.js based HTTP server, web router is one of your best choi
 
 Inspired by many other JavaScript routers, `coap-router` does almost the same recursive routing as [Express.Router](http://expressjs.com/en/guide/routing.html).
 
-Take a look at the example.
+Let's take a look at the example.
 
 #### Example
 
