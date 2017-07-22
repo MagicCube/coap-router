@@ -1,6 +1,6 @@
 {
   "name": "coap-router",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A quick demo on how to leverage web router to build CoAP server.",
   "main": "lib/router.js",
   "scripts": {
