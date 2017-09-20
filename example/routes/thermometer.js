@@ -45,6 +45,11 @@ router.get("/humidity", (req, res) => {
 	res.end();
 });
 
+router.get("/:foo/:bar", (req, res) => {
+	writeJSON(res, req.params);
+	res.end();
+});
+
 function writeJSON(res, json) {
 	res.setOption("Content-Format", "application/json");
 	res.write(JSON.stringify(json));
