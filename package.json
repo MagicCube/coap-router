@@ -1,6 +1,6 @@
 {
   "name": "coap-router",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A quick demo on how to leverage web router to build CoAP server.",
   "main": "lib/router.js",
   "scripts": {
@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/MagicCube/coap-router#readme",
   "dependencies": {
-    "coap": "^0.21.0"
+    "coap": "^0.21.0",
+    "path-to-regexp": "^2.0.0"
   }
 }
