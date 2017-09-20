@@ -4,17 +4,16 @@ const router = Router();
 const thermometer = require("../sensors/thermometer");
 
 router.get("/", (req, res) => {
-	writeJSON(res, {
+	res.json({
 		temperature: thermometer.temperature,
 		humidity: thermometer.humidity,
 		timestamp: new Date().getTime()
-	});
-	res.end();
+	}).end();
 });
 
 router.observe("/", (req, res) => {
 	function _onupdate() {
-		writeJSON(res, {
+		res.json({
 			temperature: thermometer.temperature,
 			humidity: thermometer.humidity,
 			timestamp: new Date().getTime()
@@ -30,29 +29,21 @@ router.observe("/", (req, res) => {
 });
 
 router.get("/temperature", (req, res) => {
-	writeJSON(res, {
+	res.json({
 		temperature: thermometer.temperature,
 		timestamp: new Date().getTime()
-	});
-	res.end();
+	}).end();
 });
 
 router.get("/humidity", (req, res) => {
-	writeJSON(res, {
+	res.json({
 		humidity: thermometer.humidity,
 		timestamp: new Date().getTime()
-	});
-	res.end();
+	}).end();
 });
 
 router.get("/:foo/:bar", (req, res) => {
-	writeJSON(res, req.params);
-	res.end();
+	res.json(req.params).end();
 });
-
-function writeJSON(res, json) {
-	res.setOption("Content-Format", "application/json");
-	res.write(JSON.stringify(json));
-}
 
 module.exports = router;
