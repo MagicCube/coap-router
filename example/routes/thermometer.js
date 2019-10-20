@@ -13,8 +13,7 @@ router.get("/", (req, res) => {
 });
 
 router.observe("/", (req, res) => {
-    function _onupdate()
-    {
+    function _onupdate() {
         writeJSON(res, {
             temperature: thermometer.temperature,
             humidity: thermometer.humidity,
@@ -30,27 +29,21 @@ router.observe("/", (req, res) => {
     });
 });
 
-router.get("/temperature", (req, res) => {
+router.get("/:property", (req, res) => {
+    const { property } = req.params;
+    if (property !== "temperature" && property !== "humidity") {
+        res.code = 404;
+        res.end();
+    }
     writeJSON(res, {
-        temperature: thermometer.temperature,
+        temperature: thermometer[property],
         timestamp: new Date().getTime()
     });
     res.end();
 });
 
-router.get("/humidity", (req, res) => {
-    writeJSON(res, {
-        humidity: thermometer.humidity,
-        timestamp: new Date().getTime()
-    });
-    res.end();
-});
 
-
-
-
-function writeJSON(res, json)
-{
+function writeJSON(res, json) {
     res.setOption("Content-Format", "application/json");
     res.write(JSON.stringify(json));
 }
