@@ -1,6 +1,6 @@
 {
   "name": "@ref/coap-router",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "A quick demo on how to leverage web router to build CoAP server.",
   "main": "lib/router.js",
   "scripts": {
@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/crux153/coap-router#readme",
   "dependencies": {
-    "@ref/coap": "^0.24.0",
+    "@ref/coap": "^0.24.1",
     "path-to-regexp": "^6.1.0"
   },
   "devDependencies": {
