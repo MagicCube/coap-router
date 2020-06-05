@@ -1,22 +1,29 @@
 {
-  "name": "coap-router",
-  "version": "1.0.0",
+  "name": "@ref/coap-router",
+  "version": "1.3.0",
   "description": "A quick demo on how to leverage web router to build CoAP server.",
   "main": "lib/router.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "build": "babel src/router.js --out-file lib/router.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MagicCube/coap-router.git"
+    "url": "git+https://github.com/crux153/coap-router.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/MagicCube/coap-router/issues"
+    "url": "https://github.com/crux153/coap-router/issues"
   },
-  "homepage": "https://github.com/MagicCube/coap-router#readme",
+  "homepage": "https://github.com/crux153/coap-router#readme",
   "dependencies": {
-    "coap": "^0.17.0"
+    "@ref/coap": "^0.24.1",
+    "path-to-regexp": "^6.1.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.1",
+    "@babel/core": "^7.10.2",
+    "@babel/preset-env": "^7.10.2"
   }
 }

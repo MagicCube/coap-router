@@ -1,11 +1,7 @@
-const EventEmitter = require('events');
+const EventEmitter = require("events");
 
-class Sensor extends EventEmitter
-{
-    update()
-    {
-        
-    }
+class Sensor extends EventEmitter {
+	update() {}
 }
 
 module.exports = Sensor;
