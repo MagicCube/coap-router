@@ -1,6 +1,6 @@
 const URL = require("url");
 const querystring = require("querystring");
-const pathToRegexp = require("path-to-regexp");
+const { pathToRegexp } = require("path-to-regexp");
 
 const METHODS = [
 	"all",
